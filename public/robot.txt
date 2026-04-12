@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://score1k.xyz/sitemap.xml
