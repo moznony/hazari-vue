@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <div class="nav-inner">
-      <div class="logo">🃏 Hazari</div>
+      <div class="logo">🃏</div>
       <div class="links">
         <router-link to="/">Home</router-link>
         <router-link to="/about">About</router-link>
