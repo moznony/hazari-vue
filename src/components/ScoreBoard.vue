@@ -262,6 +262,7 @@ watch(() => props.players, (newPlayers) => {
 
 .history-btn span {
     color: white;
+    text-align: center;
 }
 
 /* glow layer */
