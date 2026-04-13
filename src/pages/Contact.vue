@@ -2,10 +2,10 @@
   <div class="container contact-page">
 
     <div class="glass contact-card">
-      <h1 class="title">📡 Contact</h1>
-      <p class="subtitle">Have feedback or ideas? Reach out.</p>
 
-      <!-- Form -->
+      <h1>📡 Contact</h1>
+      <p class="subtitle">Got feedback or ideas? Send a message.</p>
+
       <div class="form">
 
         <input v-model="name" placeholder="Your Name" />
@@ -20,7 +20,7 @@
 
       <!-- Quick Links -->
       <div class="quick">
-        <a :href="`mailto:${emailTo}`">📧 Email</a>
+        <a :href="mailtoLink">📧 Email</a>
         <a :href="whatsappLink" target="_blank">💬 WhatsApp</a>
       </div>
 
@@ -30,35 +30,44 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const name = ref('')
 const email = ref('')
 const message = ref('')
 
-// 👉 change this to your email
-const emailTo = "gamedroid168@gmail.com"
+// 👉 CHANGE THIS
+const emailTo = "your@email.com"
 
-// WhatsApp link
-const whatsappLink = "https://wa.me/?text=Hey, I found your Hazari Tracker!"
-
-const send = () => {
-  if (!name.value || !message.value) {
-    alert("Please fill required fields")
-    return
-  }
-
+// FIXED mailto (proper encoding)
+const mailtoLink = computed(() => {
   const subject = encodeURIComponent("Contact from Hazari Tracker")
   const body = encodeURIComponent(
     `Name: ${name.value}\nEmail: ${email.value}\n\n${message.value}`
   )
+  return `mailto:${emailTo}?subject=${subject}&body=${body}`
+})
 
-  window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`
+// FIXED WhatsApp link
+const whatsappLink = computed(() => {
+  const text = encodeURIComponent(
+    `Hey! I want to contact you regarding Hazari Tracker`
+  )
+  return `https://wa.me/?text=${text}`
+})
+
+// send button
+const send = () => {
+  if (!name.value.trim() || !message.value.trim()) {
+    alert("Please fill required fields")
+    return
+  }
+
+  window.location.href = mailtoLink.value
 }
 </script>
 
 <style scoped>
-/* Page */
 .contact-page {
   display: flex;
   justify-content: center;
@@ -66,38 +75,13 @@ const send = () => {
   min-height: 80vh;
 }
 
-/* Card */
 .contact-card {
   width: 100%;
   max-width: 420px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
-/* Glow effect */
-.contact-card::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(34,197,94,0.2), transparent 60%);
-  top: -50%;
-  left: -50%;
-  animation: rotateGlow 8s linear infinite;
-}
-
-@keyframes rotateGlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Text */
-.title {
-  font-size: 26px;
-  margin-bottom: 5px;
-}
-
+/* Subtitle */
 .subtitle {
   opacity: 0.7;
   margin-bottom: 20px;
@@ -110,9 +94,10 @@ const send = () => {
   gap: 10px;
 }
 
+/* Inputs */
+input,
 textarea {
-  min-height: 100px;
-  resize: none;
+  width: 100%;
   padding: 12px;
   border-radius: 12px;
   border: none;
@@ -120,10 +105,14 @@ textarea {
   color: white;
 }
 
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
 /* Button */
 button {
-  background: linear-gradient(135deg, #22c55e, #4ade80);
-  font-weight: bold;
+  margin-top: 5px;
 }
 
 /* Quick links */
