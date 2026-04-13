@@ -3,7 +3,7 @@
 
     <div class="glass contact-card">
 
-      <h1>📡 Contact</h1>
+      <h1>📡 Contact Johnny</h1>
       <p class="subtitle">Got feedback or ideas? Send a message.</p>
 
       <div class="form">
@@ -37,7 +37,7 @@ const email = ref('')
 const message = ref('')
 
 // 👉 CHANGE THIS
-const emailTo = "your@email.com"
+const emailTo = "gamedroid168@gmail.com"
 
 // FIXED mailto (proper encoding)
 const mailtoLink = computed(() => {
