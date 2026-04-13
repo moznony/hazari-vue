@@ -213,7 +213,7 @@ watch(() => props.players, (newPlayers) => {
     flex: 1;
     border-radius: 10px;
     padding: 10px;
-    background: rgba(255,255,255,0.06);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 /* buttons */
@@ -221,14 +221,14 @@ watch(() => props.players, (newPlayers) => {
     background: linear-gradient(135deg, #22c55e, #4ade80);
     width: 45px;
     border-radius: 10px;
-    box-shadow: 0 0 6px rgba(34,197,94,0.4);
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
 }
 
 .sub {
     background: linear-gradient(135deg, #ef4444, #f87171);
     width: 45px;
     border-radius: 10px;
-    box-shadow: 0 0 6px rgba(239,68,68,0.4);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
 }
 
 /* actions */
@@ -243,9 +243,9 @@ watch(() => props.players, (newPlayers) => {
     flex: 1;
     padding: 10px 12px;
     border-radius: 14px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     display: flex;
     justify-content: space-between;
@@ -254,9 +254,14 @@ watch(() => props.players, (newPlayers) => {
     font-size: 13px;
     letter-spacing: 0.3px;
 
+
     transition: all 0.25s ease;
     position: relative;
     overflow: hidden;
+}
+
+.history-btn span {
+    color: white;
 }
 
 /* glow layer */
@@ -264,14 +269,14 @@ watch(() => props.players, (newPlayers) => {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(34,197,94,0.25), transparent);
+    background: linear-gradient(120deg, transparent, rgba(34, 197, 94, 0.25), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .history-btn:hover {
     transform: scale(1.02);
-    border-color: rgba(34,197,94,0.4);
+    border-color: rgba(34, 197, 94, 0.4);
 }
 
 .history-btn:hover::before {
@@ -281,8 +286,8 @@ watch(() => props.players, (newPlayers) => {
 /* ACTIVE */
 .history-btn.active {
     border-color: #22c55e;
-    box-shadow: 0 0 10px rgba(34,197,94,0.4);
-    background: rgba(34,197,94,0.1);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+    background: rgba(34, 197, 94, 0.1);
 }
 
 /* 🔽 ARROW */
@@ -299,7 +304,7 @@ watch(() => props.players, (newPlayers) => {
     width: 80px;
     background: linear-gradient(135deg, #3b82f6, #60a5fa);
     border-radius: 10px;
-    box-shadow: 0 0 6px rgba(59,130,246,0.4);
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
 }
 
 .undo-btn:disabled {
@@ -313,7 +318,7 @@ watch(() => props.players, (newPlayers) => {
     border-radius: 14px;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     max-height: 160px;
     overflow-y: auto;
 }
@@ -324,7 +329,7 @@ watch(() => props.players, (newPlayers) => {
 }
 
 .history::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
 
@@ -335,7 +340,7 @@ watch(() => props.players, (newPlayers) => {
     font-size: 13px;
     padding: 6px 0;
     opacity: 0.85;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .history-item:last-child {
@@ -345,12 +350,12 @@ watch(() => props.players, (newPlayers) => {
 /* colors */
 .plus {
     color: #22c55e;
-    text-shadow: 0 0 6px rgba(34,197,94,0.6);
+    text-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
 }
 
 .minus {
     color: #ef4444;
-    text-shadow: 0 0 6px rgba(239,68,68,0.6);
+    text-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
 }
 
 /* fade */
